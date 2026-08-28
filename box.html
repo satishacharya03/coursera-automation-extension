@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings</title>
+  <link rel="stylesheet" href="ui/box.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Settings</h1>
+    </header>
+
+    <div class="tabs">
+      <div class="tab active" data-tab="safety">🛡️ Safe Limits</div>
+      <div class="tab" data-tab="course">Course Backup</div>
+      <div class="tab" data-tab="server">Server & API</div>
+      <div class="tab" data-tab="about">About</div>
+    </div>
+
+    <!-- Safety & Rate Limiter Tab -->
+    <div id="safety" class="tab-content active">
+      <section>
+        <h3>🛡️ Anti-Ban & Rate Limiter</h3>
+        <p class="section-desc">
+          Protects your Coursera account from flags and suspensions by enforcing safe pacing (up to 50 videos per 30-minute interval) with sequential playback simulation.
+        </p>
+
+        <div class="form-group checkbox-group">
+          <label for="safeMode" class="checkbox-label">
+            <input type="checkbox" id="safeMode" checked />
+            <span>Enable Anti-Ban Safe Rate Limiter</span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="safeLimit">Safe Video Limit per Interval (1 - 100)</label>
+          <input type="number" id="safeLimit" min="1" max="100" value="50" />
+          <span class="field-hint">Default: 50 videos (prevents mass-completion velocity flags).</span>
+        </div>
+
+        <div class="form-group">
+          <label for="intervalMinutes">Interval Duration (Minutes: 5 - 180)</label>
+          <input type="number" id="intervalMinutes" min="5" max="180" value="30" />
+          <span class="field-hint">Default: 30 minutes interval window.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="stepDelay">Pacing Delay between Video Steps (ms)</label>
+          <input type="number" id="stepDelay" min="500" max="15000" step="500" value="2500" />
+          <span class="field-hint">Default: 2500 ms + randomized human jitter.</span>
+        </div>
+
+        <!-- Live Status Card -->
+        <div class="rate-status-card">
+          <h4>📊 30-Min Window Safe Quota Status</h4>
+          <div class="status-row">
+            <span>Completed in Active Window:</span>
+            <strong id="windowUsageText">0 / 50 videos</strong>
+          </div>
+          <div class="status-row">
+            <span>Remaining Safe Quota:</span>
+            <strong id="windowRemainingText" class="text-highlight">50 videos</strong>
+          </div>
+          <div class="status-row">
+            <span>Next Cooldown Slot:</span>
+            <span id="windowNextSlotText">Ready now</span>
+          </div>
+          <div class="status-actions">
+            <button id="refreshStatusBtn" class="btn-secondary" type="button">🔄 Refresh Status</button>
+            <button id="resetHistoryBtn" class="btn-danger" type="button">🗑️ Reset 30m History</button>
+          </div>
+        </div>
+      </section>
+
+      <button id="saveSafetyBtn" class="btn-primary">💾 Save Safety Settings</button>
+      <div id="safetyStatus"></div>
+    </div>
+
+    <!-- Course Backup Tab -->
+    <div id="course" class="tab-content">
+      <section>
+        <h3>Course Backup Settings</h3>
+        <label for="concurrency">Concurrent Downloads (1 - 10)</label>
+        <input type="number" id="concurrency" min="1" max="10" value="5" />
+
+        <label for="quality">Video Quality</label>
+        <select id="quality">
+          <option value="720p">720p</option>
+          <option value="540p">540p</option>
+          <option value="360p">360p</option>
+        </select>
+
+        <label for="subtitle">Subtitle Language</label>
+        <select id="subtitle"></select>
+      </section>
+
+      <button id="saveBtn" class="btn-primary">💾 Save Settings</button>
+      <div id="status"></div>
+    </div>
+
+    <!-- Server & API Tab -->
+    <div id="server" class="tab-content">
+      <section>
+        <h3>Backend API Server</h3>
+        <label for="apiUrl">Authentication Server URL</label>
+        <input type="text" id="apiUrl" placeholder="https://courserabk.vercel.app/api" value="https://courserabk.vercel.app/api" />
+        <p style="font-size: 11px; color: #888; margin-top: 6px;">
+          Deployed Server: <code>https://courserabk.vercel.app/api</code>
+        </p>
+      </section>
+
+      <button id="saveServerBtn" class="btn-primary">💾 Save API Server</button>
+      <div id="serverStatus"></div>
+    </div>
+
+    <!-- About Tab -->
+    <div id="about" class="tab-content">
+      <section>
+        <h3>Coursera Automation Pro</h3>
+        <p style="color: #bbb; line-height: 1.6; font-size: 14px;">
+          A premium automation suite designed to streamline course completion and media backups on Coursera.
+        </p>
+        <p style="color: #888; font-size: 13px; margin-top: 10px;">
+          Developer: <strong><a href="https://satish.com.np" target="_blank" style="color: var(--primary-color); text-decoration: none;">Satish (satish.com.np)</a></strong><br>
+          Website: <a href="https://satish.com.np" target="_blank" style="color: var(--primary-color); text-decoration: none;">satish.com.np</a><br>
+          Copyright: © 2024–2026 Satish. All rights reserved.
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script src="scripts/box.js"></script>
+</body>
+
+</html>

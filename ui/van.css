@@ -1,0 +1,431 @@
+:root {
+  --bg-color: #0b0f19;
+  --panel-bg: rgba(15, 23, 42, 0.94);
+  --primary: #00ff88;
+  --primary-glow: rgba(0, 255, 136, 0.4);
+  --pro-gold: #fbbf24;
+  --pro-gold-glow: rgba(251, 191, 36, 0.4);
+  --text-main: #f8fafc;
+  --text-dim: #94a3b8;
+  --glass: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --danger: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  width: 340px;
+  overflow: hidden;
+}
+
+#courseraModel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  padding: 16px;
+  position: relative;
+}
+
+#courseraModelContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Settings Icon */
+.settings-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.settings-btn:hover {
+  background: var(--glass);
+  transform: rotate(30deg);
+}
+
+.settings-btn:hover svg {
+  stroke: var(--primary);
+}
+
+/* User Profile Header */
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow: hidden;
+}
+
+.user-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.email-pill {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-dim);
+  border: 1px solid var(--glass-border);
+  padding: 2px 7px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.email-pill:hover {
+  color: var(--primary);
+  border-color: var(--primary-glow);
+}
+
+.user-id-pill {
+  background: rgba(0, 255, 136, 0.08);
+  color: var(--primary);
+  border: 1px solid var(--primary-glow);
+  padding: 2px 7px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: monospace;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.user-id-pill:hover {
+  background: rgba(0, 255, 136, 0.2);
+  transform: scale(1.02);
+}
+
+.plan-badge {
+  font-size: 9px;
+  font-weight: 900;
+  padding: 3px 7px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.plan-badge.pro {
+  background: linear-gradient(45deg, var(--primary), #00ccff);
+  color: #000;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.plan-badge.free {
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Usage Stats */
+.usage-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.stat-item {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  padding: 8px 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  font-size: 9px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.stat-value {
+  font-weight: 700;
+  font-size: 12px;
+  color: #fff;
+}
+
+.stat-value.is-danger {
+  color: #ff4444 !important;
+}
+
+.upgrade-btn-link {
+  color: var(--pro-gold);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  transition: transform 0.15s;
+}
+
+.upgrade-btn-link:hover {
+  text-decoration: underline;
+  transform: scale(1.04);
+}
+
+/* Safe Quota Badge */
+.safe-quota-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.25);
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  animation: slideDown 0.3s ease-out;
+}
+
+.safe-quota-badge:hover {
+  background: rgba(0, 255, 136, 0.15);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.safe-quota-badge.is-warning {
+  background: rgba(251, 191, 36, 0.12);
+  border-color: rgba(251, 191, 36, 0.4);
+  color: var(--pro-gold);
+}
+
+.safe-quota-badge.is-warning:hover {
+  background: rgba(251, 191, 36, 0.2);
+  border-color: var(--pro-gold);
+}
+
+#courseraModelTitle {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff 0%, var(--text-dim) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+/* Grid Layout */
+#courseraModelGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.courseraBtnWrapper {
+  position: relative;
+}
+
+.courseraModelBtn {
+  width: 100%;
+  padding: 10px 8px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 52px;
+}
+
+.courseraModelBtn:hover:not(:disabled) {
+  background: var(--glass-border);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.courseraModelBtn.is-activated {
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.15), inset 0 0 8px rgba(0, 255, 136, 0.05);
+}
+
+.courseraModelBtn.pro-feature-btn {
+  border-color: rgba(251, 191, 36, 0.25);
+}
+
+.courseraModelBtn.pro-feature-btn:hover {
+  border-color: var(--pro-gold);
+  color: var(--pro-gold);
+}
+
+.btn-label {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.tier-pill {
+  font-size: 8px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+.tier-pill.tier-free {
+  background: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+}
+
+.tier-pill.tier-pro {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+}
+
+.courseraModelBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+/* Tooltip Styling */
+.courseraTooltip {
+  visibility: hidden;
+  width: 170px;
+  background: #1e293b;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 8px;
+  position: absolute;
+  z-index: 20;
+  bottom: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  pointer-events: none;
+  border: 1px solid var(--glass-border);
+  line-height: 1.3;
+}
+
+.courseraBtnWrapper:hover .courseraTooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Mini Toast Notice inside popup */
+.popup-notice {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #059669;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 999;
+  white-space: nowrap;
+}
+
+.popup-notice.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Footer Styling */
+#footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--glass-border);
+  color: var(--text-dim);
+  font-size: 10px;
+  cursor: pointer;
+}
+
+#footer:hover #author {
+  color: var(--primary);
+}
+
+.hidden { display: none !important; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-6px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

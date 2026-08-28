@@ -1,0 +1,61 @@
+﻿{
+  "manifest_version": 3,
+  "name": "Coursera Automation Extension",
+  "version": "3.7.0",
+  "author": "Satish (https://satish.com.np)",
+  "homepage_url": "https://satish.com.np",
+  "version_name": "3.7.0 (Free & Pro Edition)",
+  "description": "Automate Coursera course videos, Skip Video+, reading materials, ungraded plugins, discussions, shareable links, and complete course backups.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "commands",
+    "downloads"
+  ],
+  "background": {
+    "service_worker": "scripts/car.js"
+  },
+  "icons": {
+    "16": "assets/i16.png",
+    "32": "assets/i32.png",
+    "48": "assets/i48.png",
+    "128": "assets/i128.png"
+  },
+  "action": {
+    "default_popup": "van.html"
+  },
+  "options_page": "box.html",
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": ["*://*.coursera.org/*"],
+      "js": ["scripts/bus.js", "scripts/trk.js"],
+      "css": ["ui/pad.css"]
+    }
+  ],
+  "commands": {
+    "open_popup_1": {
+      "suggested_key": {
+        "default": "Alt+B",
+        "mac": "Command+B"
+      },
+      "description": "Open the Course Automation Extension popup window with Alt+B"
+    },
+    "open_popup_2": {
+      "suggested_key": {
+        "default": "Alt+W",
+        "mac": "Command+W"
+      },
+      "description": "Open the Course Automation Extension popup window with Alt+W"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["scripts/cab.js"],
+      "matches": ["*://*.coursera.org/*"]
+    }
+  ],
+  "host_permissions": ["*://*.coursera.org/*"]
+}

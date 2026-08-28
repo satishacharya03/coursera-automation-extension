@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coursera Automation Extension</title>
+    <script src="scripts/van.js"></script>
+    <link rel="stylesheet" href="ui/van.css" />
+  </head>
+
+  <body>
+    <div id="courseraModel">
+      <div id="courseraModelContent">
+        <button id="settingsBtn" class="settings-btn" title="Open Settings">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
+        <h1 id="courseraModelTitle">Coursera Automation</h1>
+
+        <!-- User Profile Header -->
+        <div id="userProfile" class="user-profile hidden">
+          <div class="user-info">
+            <div class="user-top-row">
+              <span id="userName" class="user-name">Loading...</span>
+              <div id="planBadge" class="plan-badge free">FREE PLAN</div>
+            </div>
+            <div class="user-meta-row">
+              <span id="userEmail" class="user-email"></span>
+              <span id="userIdBadge" class="user-id-pill" title="Coursera User ID (Click to copy)"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan / Usage Statistics -->
+        <div id="usageStats" class="usage-stats hidden">
+          <div class="stat-item">
+            <span class="stat-label" id="statLabel1">Usage Quota</span>
+            <span id="remainingQuota" class="stat-value">Free Edition</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label" id="statLabel2">License Validity</span>
+            <span id="daysRemaining" class="stat-value">Pro Inactive</span>
+          </div>
+        </div>
+
+        <!-- Anti-Ban Safe Quota Badge -->
+        <div id="safeQuotaBadge" class="safe-quota-badge hidden" title="Anti-Ban Safe Pacing: Paces video completions per interval to prevent Coursera account flags. Click to configure.">
+          <span class="safe-quota-icon">🛡️</span>
+          <span id="safeQuotaText" class="safe-quota-text">Safe Pacing: 50/50 ready (30m)</span>
+        </div>
+
+        <div id="courseraModelGrid"></div>
+      </div>
+      
+      <footer id="footer">
+        <span id="extVersion" class="version-tag"></span>
+        <span id="author">By Satish (satish.com.np)</span>
+      </footer>
+    </div>
+  </body>
+</html>

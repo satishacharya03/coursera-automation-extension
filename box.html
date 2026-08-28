@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings</title>
+  <link rel="stylesheet" href="ui/box.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Settings</h1>
+    </header>
+
+    <div class="tabs">
+      <div class="tab active" data-tab="course">Course Backup</div>
+      <div class="tab" data-tab="additional">Preferences</div>
+    </div>
+
+    <div id="course" class="tab-content active">
+      <section>
+        <h3>Course Backup Settings</h3>
+        <label for="concurrency">Concurrent Downloads</label>
+        <input type="number" id="concurrency" min="1" max="10" value="5" />
+
+        <label for="quality">Video Quality</label>
+        <select id="quality">
+          <option value="720p">720p</option>
+          <option value="540p">540p</option>
+          <option value="360p">360p</option>
+        </select>
+
+        <label for="subtitle">Subtitle Language</label>
+        <select id="subtitle"></select>
+      </section>
+
+      <button id="saveBtn">💾 Save Settings</button>
+      <div id="status"></div>
+    </div>
+    <div id="additional" class="tab-content">
+      <section>
+        <h3>Discussion Settings</h3>
+        <label for="speedInput">Discussion Delay (ms)</label>
+        <input type="number" id="speedInput" min="500" max="20000" step="500" value="3000" />
+      </section>
+
+      <button id="saveAdditionalBtn">💾 Save Preferences</button>
+      <div id="additionalStatus"></div>
+    </div>
+  </div>
+
+  <script src="scripts/box.js"></script>
+</body>
+
+</html>

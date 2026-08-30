@@ -46,7 +46,22 @@
         <input type="number" id="speedInput" min="500" max="20000" step="500" value="3000" />
       </section>
 
-      <button id="saveAdditionalBtn">💾 Save Preferences</button>
+      <section style="margin-top: 20px;">
+        <h3>Quiz & Automation Settings</h3>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <label for="autoQuizToggle" style="margin: 0; cursor: pointer;">Auto Quiz Attempt on Attempt Page</label>
+          <input type="checkbox" id="autoQuizToggle" style="width: 18px; height: 18px; cursor: pointer;" />
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <label for="autoSubmitQuizToggle" style="margin: 0; cursor: pointer;">Auto Submit Quiz when Completed</label>
+          <input type="checkbox" id="autoSubmitQuizToggle" style="width: 18px; height: 18px; cursor: pointer;" />
+        </div>
+        <div style="padding: 10px; background: #f1f5f9; border-radius: 8px; font-size: 12px; color: #475569; margin-top: 10px;">
+          💡 <strong>Hotkey:</strong> Press <code>Alt + Z</code> (or <code>Ctrl + Shift + Z</code>) on any Coursera quiz to instantly solve and mark answers!
+        </div>
+      </section>
+
+      <button id="saveAdditionalBtn" style="margin-top: 16px;">💾 Save Preferences</button>
       <div id="additionalStatus"></div>
     </div>
   </div>

@@ -31,9 +31,16 @@
   "content_scripts": [
     {
       "run_at": "document_start",
-      "matches": ["*://*.coursera.org/*"],
-      "js": ["scripts/bus.js", "scripts/trk.js"],
-      "css": ["ui/pad.css"]
+      "matches": [
+        "*://*.coursera.org/*"
+      ],
+      "js": [
+        "scripts/bus.js",
+        "scripts/trk.js"
+      ],
+      "css": [
+        "ui/pad.css"
+      ]
     }
   ],
   "commands": {
@@ -50,8 +57,12 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["scripts/cab.js"],
-      "matches": ["*://*.coursera.org/*"]
+      "resources": [
+        "scripts/cab.js"
+      ],
+      "matches": [
+        "*://*.coursera.org/*"
+      ]
     }
   ],
   "host_permissions": [

@@ -5,7 +5,7 @@
   "author": "Satish (https://satish.com.np)",
   "homepage_url": "https://satish.com.np",
   "version_name": "3.7.0 (Free & Pro Edition)",
-  "description": "Automate Coursera course videos, Skip Video+, reading materials, ungraded plugins, discussions, shareable links, and complete course backups.",
+  "description": "Automate Coursera course videos, Watch Video Automated, reading materials, ungraded plugins, discussions, shareable links, and complete course backups.",
   "permissions": [
     "storage",
     "cookies",
@@ -37,19 +37,15 @@
     }
   ],
   "commands": {
-    "open_popup_1": {
+    "_execute_action": {
       "suggested_key": {
-        "default": "Alt+B",
-        "mac": "Command+B"
+        "default": "Alt+Q",
+        "windows": "Alt+Q",
+        "mac": "Alt+Q",
+        "chromeos": "Alt+Q",
+        "linux": "Alt+Q"
       },
-      "description": "Open the Course Automation Extension popup window with Alt+B"
-    },
-    "open_popup_2": {
-      "suggested_key": {
-        "default": "Alt+W",
-        "mac": "Command+W"
-      },
-      "description": "Open the Course Automation Extension popup window with Alt+W"
+      "description": "Open Study Companion Extension"
     }
   },
   "web_accessible_resources": [

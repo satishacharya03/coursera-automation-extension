@@ -1,53 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coursera Automation Extension</title>
-    <script src="scripts/van.js"></script>
-    <link rel="stylesheet" href="ui/van.css" />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Companion</title>
+  <link rel="stylesheet" href="ui/van.css" />
+  <style>
+    html, body {
+      width: 320px;
+      min-width: 320px;
+      max-width: 320px;
+      min-height: 360px;
+      margin: 0;
+      padding: 0;
+      background-color: #F8F9FE;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="text-gray-800 antialiased p-2.5 select-none flex flex-col gap-2">
 
-  <body>
-    <div id="courseraModel">
-      <div id="courseraModelContent">
-        <button id="settingsBtn" class="settings-btn" title="Open Settings">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-        </button>
-        <h1 id="courseraModelTitle">Coursera Automation Extension</h1>
-
-        <!-- User Profile Header -->
-        <div id="userProfile" class="user-profile hidden">
-          <div class="user-info">
-            <span id="userName" class="user-name">Loading...</span>
-            <span id="userEmail" class="user-email"></span>
-          </div>
-          <div id="proBadge" class="pro-badge hidden">ACTIVATED</div>
+  <!-- Main Compact Card Container -->
+  <div id="courseraModel" class="w-full flex flex-col gap-2">
+    
+    <!-- User Profile & Status Header (Compact) -->
+    <section id="userProfile" class="bg-white rounded-xl p-2.5 shadow-2xs border border-purple-100/60 flex items-center justify-between relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-purple-50/40 via-white to-transparent pointer-events-none"></div>
+      
+      <!-- Left: Avatar + User Info -->
+      <div class="relative z-10 flex items-center gap-2 min-w-0 flex-1">
+        <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center shrink-0 border border-white shadow-2xs text-base">
+          🦉
         </div>
-
-        <!-- Usage Statistics -->
-        <div id="usageStats" class="usage-stats hidden">
-          <div class="stat-item">
-            <span class="stat-label">Usage Status</span>
-            <span id="remainingQuota" class="stat-value">0/0</span>
+        <div class="min-w-0 flex-1 pr-1">
+          <div class="flex items-center gap-1.5">
+            <h2 id="userName" class="text-xs font-bold text-gray-900 truncate leading-tight">No User Found</h2>
+            <span id="userStatusDot" class="w-1.5 h-1.5 rounded-full bg-gray-400 ring-2 ring-gray-100 shrink-0"></span>
           </div>
-          <div class="stat-item">
-            <span class="stat-label">Expiry Date</span>
-            <span id="daysRemaining" class="stat-value">0 days</span>
+          <div id="userEmail" class="text-[10px] text-gray-400 font-medium truncate leading-tight mt-0.5">
+            Refresh page to sync
           </div>
-        </div>
-        
-        <div id="courseraModelGrid"></div>
-
-        <!-- Buy Button CTA -->
-        <div id="buyContainer" class="buy-container">
-          <button id="buyBtn" class="buy-btn">Unlock All Features ✨</button>
         </div>
       </div>
+
+      <!-- Right: Badges & Settings Trigger -->
+      <div class="relative z-10 flex items-center gap-1 shrink-0">
+        <span id="proBadge" class="hidden inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-200">
+          PRO
+        </span>
+        <button id="settingsBtn" aria-label="Settings" class="p-1 rounded-lg text-gray-400 hover:text-purple-600 hover:bg-purple-50 transition-colors cursor-pointer" title="Settings">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Compact Stats Row (3 Columns) -->
+    <section id="usageStats" class="grid grid-cols-3 gap-1.5">
+      <!-- Time Left -->
+      <div class="bg-white rounded-xl p-1.5 shadow-2xs border border-gray-100 flex items-center gap-1.5">
+        <div class="w-6 h-6 rounded-md bg-purple-50 flex items-center justify-center shrink-0 text-[11px]">
+          🕒
+        </div>
+        <div class="min-w-0">
+          <p class="text-[8.5px] font-semibold text-gray-400 uppercase tracking-wider leading-none mb-0.5">Time</p>
+          <p class="text-[11px] font-bold text-gray-900 leading-none truncate">
+            <span id="daysRemaining" class="text-purple-600 font-extrabold">0</span> <span class="text-[9px] font-normal text-gray-400">d</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Status/Progress -->
+      <div class="bg-white rounded-xl p-1.5 shadow-2xs border border-gray-100 flex items-center gap-1.5">
+        <div class="w-6 h-6 rounded-md bg-blue-50 flex items-center justify-center shrink-0 text-[11px]">
+          📖
+        </div>
+        <div class="min-w-0">
+          <p class="text-[8.5px] font-semibold text-gray-400 uppercase tracking-wider leading-none mb-0.5">Status</p>
+          <p id="courseProgress" class="text-[11px] font-extrabold text-blue-600 leading-none truncate">0</p>
+        </div>
+      </div>
+
+      <!-- Completed / Quota -->
+      <div class="bg-white rounded-xl p-1.5 shadow-2xs border border-gray-100 flex items-center gap-1.5">
+        <div class="w-6 h-6 rounded-md bg-emerald-50 flex items-center justify-center shrink-0 text-[11px]">
+          ✅
+        </div>
+        <div class="min-w-0">
+          <p class="text-[8.5px] font-semibold text-gray-400 uppercase tracking-wider leading-none mb-0.5">Quota</p>
+          <p id="remainingQuota" class="text-[11px] font-extrabold text-emerald-500 leading-none truncate">0/0</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Actions Card (Compact Grid) -->
+    <section class="bg-white rounded-xl p-2 shadow-2xs border border-gray-100 flex flex-col gap-1.5">
+      <div class="flex items-center justify-between px-1">
+        <span class="text-[11px] font-bold text-gray-800">Quick Actions</span>
+        <span class="text-[9px] text-gray-400 font-medium">Tools</span>
+      </div>
       
-      <footer id="footer">
-        <span id="author">By Satish (satish.com.np)</span>
-      </footer>
-    </div>
-  </body>
+      <!-- Button Grid dynamically populated by van.js -->
+      <div id="courseraModelGrid" class="grid grid-cols-2 gap-1.5">
+        <!-- Buttons injected here -->
+      </div>
+    </section>
+
+    <!-- Upgrade CTA (Visible for Free / Expired users) -->
+    <section id="buyContainer" class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl p-1.5 text-white shadow-2xs flex items-center justify-between gap-1.5">
+      <div class="flex items-center gap-1.5 min-w-0 flex-1 pl-1">
+        <span class="text-xs shrink-0">✨</span>
+        <div class="min-w-0 flex-1">
+          <p class="text-[10px] font-bold leading-tight truncate">Unlock Unlimited</p>
+          <p class="text-[8.5px] text-purple-100 leading-tight truncate">Quizzes & video bypass</p>
+        </div>
+      </div>
+      <button id="buyBtn" class="bg-white hover:bg-purple-50 text-purple-700 font-extrabold text-[10px] px-2 py-0.5 rounded-md shadow-2xs transition-colors shrink-0 cursor-pointer">
+        Upgrade
+      </button>
+    </section>
+
+    <!-- Compact Footer with Branding -->
+    <footer id="footer" class="flex items-center justify-between pt-0.5 px-1 text-[10px] text-gray-400 cursor-pointer hover:text-purple-600 transition-colors">
+      <div class="flex items-center gap-1">
+        <span>🦉</span>
+        <span id="courseraModelTitle" class="font-bold text-gray-600 hover:text-purple-600 transition-colors">Study Companion</span>
+        <span>• by Satish</span>
+      </div>
+      <span id="extVersion" class="text-[9px] text-gray-400 font-medium">v3.7.0</span>
+      <span id="author" class="hidden">By Satish (satish.com.np)</span>
+    </footer>
+
+  </div>
+
+  <!-- Hidden compatibility elements for JS bindings -->
+  <div id="courseraModelContent" class="hidden"></div>
+
+  <script src="scripts/van.js"></script>
+</body>
 </html>

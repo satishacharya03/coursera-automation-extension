@@ -12,7 +12,7 @@ A high-performance browser extension designed to streamline and automate your Co
 
 | Feature | Description |
 | :--- | :--- |
-| **Skip Video+ (Anti-Ban Safe)** | High-speed video lecture completion with built-in Anti-Ban safe rate limiter (50 videos/30m default, fully customizable) and sequential human-like pacing. |
+| **Watch video  (Anti-Ban Safe)** | High-speed video lecture completion with built-in Anti-Ban safe rate limiter (50 videos/30m default, fully customizable) and sequential human-like pacing. |
 | **Safe Rate Limiter & Warning** | Sliding 30-minute interval window that prevents velocity suspensions, displays quota status, and provides warning alerts with manual override. |
 | **Course Backup** | Batch download entire courses including HD videos (720p/540p/360p), multi-language subtitles (.txt), and lecture presentations (.pdf/.pptx) neatly organized per module into a ZIP archive. |
 | **Reading Materials** | Complete all supplement reading articles, transcripts, and reading tasks safely. |

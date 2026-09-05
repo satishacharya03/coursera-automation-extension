@@ -35,8 +35,8 @@
         "*://*.coursera.org/*"
       ],
       "js": [
-        "scripts/bus.js",
-        "scripts/trk.js"
+        "scripts/trk.js",
+        "scripts/bus.js"
       ],
       "css": [
         "ui/pad.css"

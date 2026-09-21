@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
   "name": "Coursera Automation Extension",
-  "version": "3.7.0",
+  "version": "2.2",
   "author": "Satish (https://satish.com.np)",
   "homepage_url": "https://satish.com.np",
-  "version_name": "3.7.0 (Free & Pro Edition)",
+  "version_name": "2.2 (Free & Pro Edition)",
   "description": "Automate Coursera course videos, Watch Video, reading materials, ungraded plugins, discussions, shareable links, and complete course backups.",
   "permissions": [
     "storage",

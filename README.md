@@ -1,6 +1,6 @@
 # Coursera Automation Pro Suite
 
-![Version](https://img.shields.io/badge/version-3.7.0-00ff88)
+![Version](https://img.shields.io/badge/version-2.1-00ff88)
 ![Platform](https://img.shields.io/badge/platform-Chrome%20%7C%20Edge%20%7C%20Brave-blue)
 ![Edition](https://img.shields.io/badge/edition-Pro%20Commercial-gold)
 

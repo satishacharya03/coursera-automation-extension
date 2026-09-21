@@ -1555,7 +1555,8 @@ body {
   background-color: #FCE7F3;
 }
 
-.courseraModelBtn[data-action="completesinglevideo"]::before {
+.courseraModelBtn[data-action="completesinglevideo"]::before,
+.courseraModelBtn[data-action="freevideos"]::before {
   content: '🎥';
   background-color: #FEF08A;
 }

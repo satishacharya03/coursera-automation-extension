@@ -1611,6 +1611,13 @@ body {
   box-shadow: 0 0 0 1px #8B5CF6, 0 2px 6px rgba(139, 92, 246, 0.08);
 }
 
+.is-disabled-feature .courseraModelBtn {
+  opacity: 0.45;
+  filter: grayscale(0.9);
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
 .courseraModelBtn:disabled {
   opacity: 0.5;
   cursor: not-allowed;

@@ -1543,14 +1543,12 @@ body {
 }
 
 /* Button Specific Icons and Color Palette */
-.courseraModelBtn[data-action="quiz"]::before,
-.courseraBtnWrapper:nth-child(1) .courseraModelBtn::before {
+.courseraModelBtn[data-action="quiz"]::before {
   content: '🤖';
   background-color: #F3E8FF;
 }
 
-.courseraModelBtn[data-action="watchvideo"]::before,
-.courseraBtnWrapper:nth-child(2) .courseraModelBtn::before {
+.courseraModelBtn[data-action="watchvideo"]::before {
   content: '🎬';
   background-color: #FCE7F3;
 }
@@ -1561,38 +1559,37 @@ body {
   background-color: #FEF08A;
 }
 
-.courseraModelBtn[data-action="reading"]::before,
-.courseraBtnWrapper:nth-child(4) .courseraModelBtn::before {
+.courseraModelBtn[data-action="reading"]::before {
   content: '📄';
   background-color: #DBEAFE;
 }
 
-.courseraModelBtn[data-action="discussion"]::before,
-.courseraBtnWrapper:nth-child(5) .courseraModelBtn::before {
+.courseraModelBtn[data-action="discussion"]::before {
   content: '💬';
   background-color: #DCFCE7;
 }
 
-.courseraModelBtn[data-action="dialogue"]::before,
-.courseraBtnWrapper:nth-child(6) .courseraModelBtn::before {
+.courseraModelBtn[data-action="dialogue"]::before {
   content: '📝';
   background-color: #FEF3C7;
 }
 
-.courseraModelBtn[data-action="ungradedplugin"]::before,
-.courseraBtnWrapper:nth-child(7) .courseraModelBtn::before {
+.courseraModelBtn[data-action="ungradedplugin"]::before {
   content: '🧩';
   background-color: #EDE9FE;
 }
 
-.courseraModelBtn[data-action="shareablelink"]::before,
-.courseraBtnWrapper:nth-child(8) .courseraModelBtn::before {
+.courseraModelBtn[data-action="coach"]::before {
+  content: '🧑‍🏫';
+  background-color: #FEF3C7;
+}
+
+.courseraModelBtn[data-action="shareablelink"]::before {
   content: '🔗';
   background-color: #CFFAFE;
 }
 
-.courseraModelBtn[data-action="coursebackup"]::before,
-.courseraBtnWrapper:nth-child(9) .courseraModelBtn::before {
+.courseraModelBtn[data-action="coursebackup"]::before {
   content: '📥';
   background-color: #CCFBF1;
 }
